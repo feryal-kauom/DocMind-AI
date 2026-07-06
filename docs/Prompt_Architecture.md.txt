@@ -1,0 +1,309 @@
+Prompt Architecture
+Overview
+
+DocMind AI does not rely on a single monolithic prompt.
+
+Instead, it uses a modular Prompt Architecture where every prompt has one clear responsibility.
+
+Each prompt receives structured input, performs a specific task, and passes its output to the next stage.
+
+This design improves reliability, explainability, consistency, and scalability.
+
+Prompt Pipeline
+Document
+
+↓
+
+Classifier Prompt
+
+↓
+
+Planning Prompt
+
+↓
+
+Context Prompt
+
+↓
+
+Expert Prompt
+
+↓
+
+Analysis Prompt
+
+↓
+
+Review Prompt
+
+↓
+
+Formatting Prompt
+
+↓
+
+Validation Prompt
+
+↓
+
+Final Response
+1. Classifier Prompt
+Goal
+
+Understand the uploaded document.
+
+Determine:
+
+Document Type
+Domain
+Language
+Reading Difficulty
+Writing Style
+
+Example Output
+
+{
+"type":"Research Paper",
+"domain":"Artificial Intelligence",
+"language":"English",
+"difficulty":"Advanced",
+"confidence":0.97
+}
+2. Planning Prompt
+Goal
+
+Create an analysis plan.
+
+Instead of analyzing everything,
+
+decide what should be analyzed.
+
+Example
+
+Research Paper
+
+↓
+
+Generate
+
+Executive Summary
+Key Findings
+Methodology
+Limitations
+Future Work
+
+Resume
+
+↓
+
+Generate
+
+Skills
+Experience
+ATS Score
+Weaknesses
+Recommendations
+
+Contract
+
+↓
+
+Generate
+
+Obligations
+Risks
+Deadlines
+Missing Clauses
+3. Context Prompt
+Goal
+
+Build the AI context.
+
+Combine
+
+User request
+Current document
+Conversation history
+Project memory
+User preferences
+
+The AI should receive only the necessary information.
+
+4. Expert Prompt
+Goal
+
+Choose the best AI expert.
+
+Possible experts
+
+Teacher
+
+Research Scientist
+
+Lawyer
+
+Financial Analyst
+
+Medical Reviewer
+
+HR Recruiter
+
+Software Architect
+
+Business Consultant
+
+Content Writer
+
+Technical Writer
+
+5. Analysis Prompt
+Goal
+
+Perform deep reasoning.
+
+Requirements
+
+Think step by step.
+Use evidence.
+Avoid assumptions.
+Cite document sections whenever possible.
+Explain complex ideas clearly.
+6. Review Prompt
+Goal
+
+Review the generated analysis.
+
+Check
+
+Missing information
+Logical errors
+Contradictions
+Unsupported claims
+Hallucination risk
+
+If problems exist,
+
+send the response back for improvement.
+
+7. Formatting Prompt
+Goal
+
+Produce professional output.
+
+Possible formats
+
+Executive Report
+
+Academic Report
+
+Study Notes
+
+Bullet Summary
+
+Table
+
+Presentation Outline
+
+Markdown
+
+8. Validation Prompt
+Goal
+
+Final quality verification.
+
+Verify
+
+Completeness
+Accuracy
+Professional tone
+Source references
+Formatting consistency
+
+If validation fails,
+
+regenerate the response.
+
+Prompt Design Principles
+
+Every prompt should have:
+
+Role
+
+Who am I?
+
+Objective
+
+What should I achieve?
+
+Constraints
+
+What must I avoid?
+
+Expected Output
+
+Exactly what should be returned.
+
+Quality Checklist
+
+Before finishing,
+
+verify that the response satisfies all requirements.
+
+Prompt Lifecycle
+Input
+
+↓
+
+Understand
+
+↓
+
+Plan
+
+↓
+
+Reason
+
+↓
+
+Review
+
+↓
+
+Format
+
+↓
+
+Validate
+
+↓
+
+Deliver
+Future Prompt Types
+
+The architecture supports adding new prompts later without redesigning the system.
+
+Examples
+
+Translation Prompt
+Quiz Generator Prompt
+Flashcards Prompt
+Presentation Prompt
+Citation Prompt
+Comparison Prompt
+Writing Coach Prompt
+Mind Map Prompt
+AI Philosophy
+
+DocMind AI should behave like an experienced professional assistant.
+
+It should:
+
+Think before answering.
+Explain when necessary.
+Adapt to document type.
+Maintain context across conversations.
+Prefer accuracy over speed.
+Never fabricate information.
+Clearly distinguish facts from assumptions.
+Deliver responses that are practical, structured, and trustworthy.

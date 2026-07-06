@@ -1,0 +1,302 @@
+AI Engine
+Overview
+
+The AI Engine is the core intelligence layer of DocMind AI.
+
+Instead of using a single prompt, DocMind AI follows a modular AI orchestration pipeline where every component has one clear responsibility.
+
+This architecture improves accuracy, maintainability, scalability, and future extensibility.
+
+Pipeline
+User Upload
+      │
+      ▼
+Document Extractor
+      │
+      ▼
+Text Cleaner
+      │
+      ▼
+Document Classifier
+      │
+      ▼
+Task Planner
+      │
+      ▼
+Context Builder
+      │
+      ▼
+Expert Selector
+      │
+      ▼
+Deep Analyzer
+      │
+      ▼
+Response Reviewer
+      │
+      ▼
+Response Formatter
+      │
+      ▼
+Quality Validator
+      │
+      ▼
+Workspace Generator
+      │
+      ▼
+Conversation Engine
+1. Document Extractor
+Purpose
+
+Extract readable text from uploaded documents.
+
+Supported Formats
+PDF
+DOCX
+TXT
+Markdown
+Output
+Raw extracted text
+2. Text Cleaner
+Responsibilities
+Remove unnecessary spaces
+Normalize formatting
+Remove duplicate characters
+Preserve document structure
+Detect language
+Output
+Clean normalized text
+3. Document Classifier
+Responsibilities
+
+Identify:
+
+Document Type
+Domain
+Language
+Complexity
+Confidence Score
+
+Example
+
+Research Paper
+
+Legal Contract
+
+Resume
+
+Book
+
+Invoice
+
+Report
+
+Article
+
+Manual
+
+Presentation
+
+Academic Notes
+
+4. Task Planner
+
+This module decides what analyses should be performed.
+
+Example
+
+Research Paper
+
+↓
+
+Generate:
+
+Summary
+Key Findings
+Methodology
+Limitations
+Future Work
+
+Contract
+
+↓
+
+Generate:
+
+Risks
+Deadlines
+Missing Clauses
+Obligations
+
+Book
+
+↓
+
+Generate:
+
+Chapters
+Main Ideas
+Timeline
+Characters
+5. Context Builder
+
+Collects all required information before sending it to the LLM.
+
+Includes:
+
+User request
+Previous conversation
+Current document
+Project memory
+User preferences
+6. Expert Selector
+
+Automatically selects the best AI expert.
+
+Possible Experts
+
+Research Scientist
+
+Teacher
+
+Financial Analyst
+
+Law Expert
+
+Medical Reviewer
+
+HR Recruiter
+
+Business Consultant
+
+Technical Writer
+
+Software Architect
+
+7. Deep Analyzer
+
+Performs the main reasoning process.
+
+Produces
+
+Professional analysis
+
+Evidence
+
+Structured findings
+
+Recommendations
+
+Confidence estimation
+
+8. Response Reviewer
+
+Checks
+
+Consistency
+
+Missing information
+
+Logical errors
+
+Unsupported claims
+
+Hallucination risks
+
+9. Response Formatter
+
+Converts analysis into user-friendly output.
+
+Formats
+
+Markdown
+
+Rich Text
+
+Tables
+
+Bullet Lists
+
+Executive Report
+
+Presentation Style
+
+Study Notes
+
+10. Quality Validator
+
+Final quality check.
+
+Verifies
+
+Answer completeness
+
+Source consistency
+
+Formatting
+
+Professional tone
+
+Confidence threshold
+
+If validation fails,
+
+the pipeline automatically regenerates the response.
+
+11. Workspace Generator
+
+Creates the project workspace.
+
+Includes
+
+Document
+
+Summary
+
+Analysis
+
+Reports
+
+History
+
+Chat
+
+Notes
+
+12. Conversation Engine
+
+Allows natural conversation with the uploaded document.
+
+Supports
+
+Context awareness
+
+Conversation memory
+
+Follow-up questions
+
+Reference citations
+
+Task continuity
+
+AI Design Principles
+
+Single Responsibility
+
+Every module performs exactly one responsibility.
+
+Modular Architecture
+
+Every module can be replaced independently.
+
+Explainability
+
+The AI should explain its reasoning whenever possible.
+
+Reliability
+
+Responses should always be validated before reaching the user.
+
+Scalability
+
+New modules can be added without redesigning the pipeline.
